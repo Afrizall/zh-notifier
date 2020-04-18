@@ -1,12 +1,12 @@
 import re, sys, requests
 
 
-print """
+print("""
 ########################
 # Coded By Afrizal F.A #
 # Auto Mirror Zone-H   #
 ########################
-"""
+""")
 
 listweb=open(sys.argv[1], "r").read()
 pisah=listweb.split("\n")
@@ -17,7 +17,7 @@ for x in pisah :
    if not x :
       continue
    mirror=requests.post(url="http://www.zone-h.org/notify/single?hz=1", data={ "defacer" : nick, "domain1" : x, "hackmode" : 1, "reason" : 1}, headers={"User-Agent" : user_agent})
-   if re.search("ERROR", mirror.content) :
-      print "[-] " + x + " => Error"
+   if re.search("ERROR", mirror.text) :
+      print("[-] " + x + " => Error")
    else :
-      print "[+] " + x + " => Ok"
+      print("[+] " + x + " => Ok")
